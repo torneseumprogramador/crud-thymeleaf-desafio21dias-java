@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="compartilhados/head"></head>
+<body class="skin-blue fixed-layout">
+    <div th:replace="compartilhados/preloader"></div>
+
+    <div id="main-wrapper">
+        <header th:replace="compartilhados/header"></header>
+        <aside th:replace="compartilhados/aside"></aside>
+    </div>
+
+    <div class="page-wrapper" style="min-height: 401px;">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h4 class="text-themecolor">Novo profissional</h4>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <form id="formCadastro">
+                <fieldset>
+                  <legend>Profissinal:</legend>
+                  <label for="nome">Nome:</label>
+                  <input type="hidden" id="id" name="id"><br><br>
+                  <input type="text" id="nome" name="nome"><br><br>
+                  <label for="observacao">Observação:</label>
+                  <textarea id="observacao" name="observacao"></textarea><br><br>
+                  
+                  <input type="submit" class="btn btn-primary" value="Enviar">
+                </fieldset>
+              </form>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+
+    <footer th:replace="compartilhados/footer"></footer>
+    
+    <scripts th:replace="compartilhados/scripts"></scripts>
+</body>
+
+</html>

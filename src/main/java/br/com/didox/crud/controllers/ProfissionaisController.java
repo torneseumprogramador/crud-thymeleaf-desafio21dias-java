@@ -20,4 +20,9 @@ public class ProfissionaisController {
         modelView.addAttribute("profissionais", profissionais);
         return "profissionais/index";
     }
+
+    @GetMapping("/novo")
+    public String novo(){
+        return "profissionais/novo";
+    }
 }
