@@ -40,10 +40,11 @@
                     <td data-th-text="${profissional.observacao}">...</td>
                     <td data-th-text="${profissional.dataCriacao}">...</td>
                     <td class="table-action">
-                      <a href="#formCadastro" class="btn btn-warning">Alterar</a>
+                      <a th:attr="href=|/profissionais/${profissional.id}/editar|" class="btn btn-warning">Alterar</a>
                     </td>
                     <td class="table-action">
-                      <button class="btn btn-danger">Excluir</button>
+                      <!-- <button class="btn btn-danger" th:attr="onclick=|excluir('${profissional.id}')|" >Excluir</button> -->
+                      <button class="btn btn-danger" th:attr="onclick=|excluirAjax('${profissional.id}')|" >Excluir</button>
                     </td>
                   </tr>
                 </tbody>
@@ -58,6 +59,32 @@
         <!-- ============================================================== -->
     </div>
 
+    <script>
+      const excluir = (id) => {
+        if( confirm("Confirma?") ){
+          window.location.href = `/profissionais/${id}/excluir`
+        }
+      }
+
+      const excluirAjax = async (id) => {
+        if( confirm("Confirma?") ){
+          const settings = {
+              method: 'DELETE',
+              headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              }
+          };
+          try {
+              await fetch(`/api/profissionais/${id}`, settings);
+              window.location.reload();
+          } catch (e) {
+              console.log(e);
+          } 
+        }
+      }
+      
+    </script>
     <footer th:replace="compartilhados/footer"></footer>
     
     <scripts th:replace="compartilhados/scripts"></scripts>

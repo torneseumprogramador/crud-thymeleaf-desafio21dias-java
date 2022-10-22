@@ -18,15 +18,28 @@
               </div>
             </div>
             <div class="row">
-              <form id="formCadastro">
+              <form id="formCadastro" th:attr="action=|${action}|" method="post">
                 <fieldset>
                   <legend>Profissinal:</legend>
-                  <label for="nome">Nome:</label>
-                  <input type="hidden" id="id" name="id"><br><br>
-                  <input type="text" id="nome" name="nome"><br><br>
-                  <label for="observacao">Observação:</label>
-                  <textarea id="observacao" name="observacao"></textarea><br><br>
+                  <div th:if="${profissional}">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" th:attr="value=|${profissional.nome}|" ><br><br>
+
+                    <label for="observacao">Observação:</label>
+                    <textarea id="observacao" name="observacao" th:text="${profissional.observacao}"></textarea><br><br>
+                  </div>
+                  <div th:unless="${profissional}">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome"><br><br>
+
+                    <label for="observacao">Observação:</label>
+                    <textarea id="observacao" name="observacao" ></textarea><br><br>
+                  </div>
                   
+                  <div th:if="${erro}">
+                    <div class="alert alert-danger" role="alert" th:text="${erro}"></div>
+                  </div>
+
                   <input type="submit" class="btn btn-primary" value="Enviar">
                 </fieldset>
               </form>
