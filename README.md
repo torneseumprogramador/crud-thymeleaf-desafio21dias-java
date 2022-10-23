@@ -90,3 +90,23 @@ docker build -t didox/crud-java-desafio .
 docker compose up --datach
 
 ```
+
+
+
+# Nginx proxy pass
+``` shell
+apt install nginx
+
+vim /etc/nginx/sites-available/default
+
+### dentro do arquivo ###
+``` nginx
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    
+    location = / {
+        proxy_pass http://localhost:8080/;
+    }
+}
+```
