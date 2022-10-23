@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  javaCrud:
+    container_name: Crud-java
+    image: didox/crud-java-desafio
+    environment:
+      MYSQL_HOST: "desafiojava.cvhqofz3hgme.us-east-1.rds.amazonaws.com"
+      MYSQL_DATABASE: "desafio21diasjava"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "a2d3m4o5i1n1"
+    ports:
+      - "80:8080"
