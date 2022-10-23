@@ -54,6 +54,9 @@ vim /etc/apache2/sites-available/000-default.conf
         ProxyPass / http://localhost:8080/
         ProxyPassReverse / http://localhost:8080/
 </VirtualHost>
+
+systemctl restart apache2
+
 ```
 
 
@@ -71,6 +74,8 @@ vim /etc/apache2/sites-available/000-default.conf
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+
+systemctl restart apache2
 
 ```
 
@@ -109,4 +114,6 @@ server {
         proxy_pass http://localhost:8080/;
     }
 }
+
+systemctl restart nginx
 ```
