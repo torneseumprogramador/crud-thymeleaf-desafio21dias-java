@@ -100,7 +100,7 @@ apt install nginx
 vim /etc/nginx/sites-available/default
 
 ### dentro do arquivo ###
-``` nginx
+
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
