@@ -73,3 +73,20 @@ vim /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 
 ```
+
+
+# Apache app docker
+``` shell
+sudo su -
+apt update
+apt instal docker.io
+apt install docker-compose
+apt install maven
+
+mvn package -Dmaven.test.skip
+
+docker build -t didox/crud-java-desafio .
+
+docker compose up --datach
+
+```
